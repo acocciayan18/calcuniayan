@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <script>
+
+  </script>
+</head>
+<body>
+  <input type="text" id="display" enabled>
+<p>
+  <button onclick="appendToDisplay('1'); calculation += '1'; console.log(calculation)">1</button>
+
+  <button onclick="appendToDisplay('2'); calculation += '2'; console.log(calculation)">2</button>
+
+  <button onclick="appendToDisplay('3'); calculation += '3'; console.log(calculation)">3</button>
+
+  <button onclick="appendToDisplay(' + '); calculation += ' + '; console.log(calculation)">+</button>
+  </p>
+  <p>
+    <button onclick="appendToDisplay('4'); calculation += '4'; console.log(calculation)">4</button>
+
+    <button onclick="appendToDisplay('5'); calculation += '5'; console.log(calculation)">5</button>
+
+    <button onclick="appendToDisplay('6');  calculation += '6'; console.log(calculation)">6</button>
+
+    <button onclick="appendToDisplay(' - '); calculation += ' - '; console.log(calculation)">-</button>
+  </p>
+  <p>
+    <button onclick="appendToDisplay('7'); calculation += '7'; console.log(calculation)">7</button>
+
+    <button onclick="appendToDisplay('8');  calculation += '8'; console.log(calculation)">8</button>
+
+    <button onclick="appendToDisplay('9'); calculation += '9'; console.log(calculation)">9</button>
+
+    <button onclick="appendToDisplay(' * '); calculation += ' * '; console.log(calculation)">*</button>
+  </p>
+  <p>
+    <button onclick="appendToDisplay('0'); calculation += '0'; console.log(calculation)">0</button>
+
+    <button onclick="appendToDisplay('.'); calculation += '.'; console.log(calculation)">.</button>
+
+    <button onclick="appendToDisplay(' / ');  calculation += ' / '; console.log(calculation)">/</button>
+
+    <button onclick="appendToDisplay(eval(calculation)); calculation = (''); console.log(calculation)">=</button>
+  </p>
+  <p>
+    <button onclick="clearDisplay(); console.log('Cleared.')">Clear</button>
+    
+  </p>
+
+</body>
+<script>
+  let calculation = '';
+
+  function appendToDisplay(value) {
+      const display = document.getElementById('display');
+      display.value += value;
+    }
+
+    function clearDisplay() {
+      const display = document.getElementById('display');
+      display.value = '';
+    }
+
+    function calculateResult() {
+      const display = document.getElementById('display');
+      try {
+        const result = eval(display.value);
+        display.value = result;
+      } catch (error) {
+        // Handle errors, e.g., invalid expressions
+        console.error('Error:', error);
+        display.value = 'Error';
+      }
+    }
+</script>
+</html>
